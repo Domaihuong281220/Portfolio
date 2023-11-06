@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
+import myImg from "../../Assets/Screenshot.png";
+import myImg2 from "../../Assets/Screenshot2.png";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
@@ -14,41 +15,39 @@ function Home2() {
     <Container fluid className="home-about-section" id="about">
       <Container>
         <Row>
-          <Col md={8} className="home-about-description">
+          <Col md={7} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
-              LET ME <span className="purple"> INTRODUCE </span> MYSELF
+              WELCOME <span className="purple"> TO </span> KID EDUCATION
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.🤷‍♂️
               <br />
-              <br />I am fluent in classics like
+              <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit
               <i>
-                <b className="purple"> C++, Javascript and Go. </b>
+                <b className="purple"> sed do eiusmod tempor incididunt ut. </b>
               </i>
               <br />
               <br />
-              My field of Interest's are building new &nbsp;
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit &nbsp;
               <i>
-                <b className="purple">Web Technologies and Products </b> and
-                also in areas related to{" "}
+                <b className="purple">Lorem ipsum dolor sit amet </b> and
+                consectetur adipiscing elit{" "}
                 <b className="purple">
-                  Blockchain.
+                Lorem ipsum.
                 </b>
               </i>
               <br />
               <br />
-              Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Node.js</b> and
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit <b className="purple"> adipiscing elit</b> and
               <i>
                 <b className="purple">
                   {" "}
-                  Modern Javascript Library and Frameworks
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
                 </b>
               </i>
-              &nbsp; like
+              &nbsp;elit
               <i>
-                <b className="purple"> React.js and Next.js</b>
+                <b className="purple">Lorem ipsum dolor sit amet</b>
               </i>
             </p>
           </Col>
@@ -56,13 +55,17 @@ function Home2() {
             <Tilt>
               <img src={myImg} className="img-fluid" alt="avatar" />
             </Tilt>
+            <Tilt>
+              <img src={myImg2} className="img-fluid" alt="avatar" />
+            </Tilt>
           </Col>
+          
         </Row>
         <Row>
           <Col md={12} className="home-about-social">
-            <h1>FIND ME ON</h1>
+            <h1>FIND US ON</h1>
             <p>
-              Feel free to <span className="purple">connect </span>with me
+              Feel free to <span className="purple">connect </span>with us
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">

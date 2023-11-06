@@ -1,14 +1,14 @@
 html {
   --section-background-color: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
+    rgba(17, 16, 16, 0.13),
+    rgba(12, 8, 24, 0.087)
   );
 
   --image-gradient: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
+    rgba(17, 16, 16, 0),
+    rgba(12, 10, 22, 0)
   );
 
   --imp-text-color: #c770f0;
@@ -16,6 +16,10 @@ html {
 
 .purple {
   color: var(--imp-text-color) !important;
+}
+
+.green {
+  color: #07B207 !important;
 }
 
 button:focus {
@@ -155,8 +159,8 @@ button:focus {
 }
 
 .logo {
-  height: 1.4em !important;
-  width: 2.5em !important;
+  height: 3em !important;
+  width: 10em !important;
 }
 
 .navbar-nav .nav-link {
@@ -257,7 +261,7 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  background-image: var(--image-gradient), url(./Assets/home-bg.jpg);
+  background-image: var(--image-gradient), url(./Assets/background.jpg);
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -281,12 +285,15 @@ button:focus {
 }
 
 .main-name {
-  color: #cd5ff8;
+  /* color: #cd5ff8; */
+  color: #07B207;
+
 }
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #be6adf !important;
+  /* color: #be6adf !important; */
+  color: #07B207 !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
@@ -308,6 +315,7 @@ button:focus {
 .myAvtar {
   justify-content: center !important;
   padding-top: 9em !important;
+  width: 40% !important;
 }
 
 @media (max-width: 767px) {
