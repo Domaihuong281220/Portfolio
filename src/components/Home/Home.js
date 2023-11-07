@@ -4,14 +4,26 @@ import homeLogo from "../../Assets/kidpng.png";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
+import {useState} from 'react';
+
 
 function Home() {
+   const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+  
   return (
-    <section>
+    <section style={{position:"relative", zIndex:"-2"}}>
       <Container fluid className="home-section" id="home">
         <Particle />
         <Container className="home-content">
-          <Row>
+          <Row style={{marginBottom:"5rem"}}>
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
                 Hi There!{" "}
@@ -35,21 +47,23 @@ function Home() {
                   paddingBottom: 10, 
                   paddingLeft: 30, 
                   paddingRight: 30, 
-                  textAlign: "left", 
+                  textAlign: "center", 
                   fontFamily: "Raleway", 
-                  backgroundColor:"#07B207", 
+                  width:isHovering ? "180px" : "170px",
+                  height:isHovering ? "70px" : "60px",
                   color:"white", 
                   borderRadius:"10px", 
                   fontSize:"1.5rem", 
                   boxShadow:"0 0 50px 15px #48abe0", 
                   border:"0px",  
-                  
-                  "&:hover":{
-                    backgroundColor:"#058305"
-                  }
-
+                  zIndex:"3",
+                  position:"absolute",
+                  backgroundColor: isHovering ? "#07B207": "#058305"
                   }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                   >Play now</button>
+                  
               </div>
             </Col>
 
