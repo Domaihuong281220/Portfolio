@@ -4,9 +4,10 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/logokid.png";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
+import {useNavigate} from "react-router-dom"
 import {
   AiFillStar,
   AiOutlineHome,
@@ -20,6 +21,7 @@ import {RxAvatar} from 'react-icons/rx'
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
+  const navigate = useNavigate(); 
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
@@ -107,9 +109,10 @@ function NavBar() {
 
             <Nav.Item className="fork-btn">
               <Button
-                href="/login"
-                target="_blank"
+                
+                // target="_blank"
                 className="fork-btn-inner"
+                onClick={()=>navigate("/login")}
               >
                 <RxAvatar style={{ fontSize: "1.2em" }} />{" "}
                 {/* <AiFillStar style={{ fontSize: "1.1em" }} /> */}
