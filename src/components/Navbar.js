@@ -18,7 +18,6 @@ import {
 
 import {RxAvatar} from 'react-icons/rx'
 
-import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
   const navigate = useNavigate(); 

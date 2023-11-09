@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+
 import { useState, useEffect } from 'react';
 import "./style.css"
+import {useNavigate} from "react-router-dom"
 
 function Login() {
 	const [isHovering, setIsHovering] = useState(false);
@@ -14,6 +15,7 @@ function Login() {
 		setIsHovering(false);
 	};
 
+	const navigate = useNavigate(); 
 
 	const [ClassList, setClassList] = useState("login-container");
 
@@ -45,7 +47,7 @@ function Login() {
 						<input type="text" placeholder="Name" />
 						<input type="email" placeholder="Email" />
 						<input type="password" placeholder="Password" />
-						<button onClick={SignUpOnClick}>Sign Up</button>
+						<button onClick={()=>navigate("/login")}>Sign Up</button>
 					</form>
 				</div>
 				<div class="login-form-container login-sign-in-container">
@@ -60,7 +62,7 @@ function Login() {
 						<input type="email" placeholder="Email" />
 						<input type="password" placeholder="Password" />
 						<a href="#">Forgot your password?</a>
-						<button onClick={SignInOnClick}>Sign In</button>
+						<button onClick={()=>navigate("/")}>Sign In</button>
 					</form>
 				</div>
 				<div class="login-overlay-container">
