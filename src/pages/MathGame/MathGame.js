@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-router-dom";
+import * as ReactDOM from 'react-dom'
 
 function MathGame() {
     const TIME = 30; // Initial game duration, in seconds
