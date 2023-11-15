@@ -4,90 +4,143 @@ import "./style.css"
 import { useTimer } from 'react-timer-hook';
 
 
-function MyTimer({ expiryTimestamp }) {
-  const {
-    totalSeconds,
-    seconds,
-    minutes,
-    hours,
-    days,
-    isRunning,
-    start,
-    pause,
-    resume,
-    restart,
-  } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
-
-
-  return (
-    <div style={{textAlign: 'center'}}>
-      <h1>react-timer-hook </h1>
-      <p>Timer Demo</p>
-      <div style={{fontSize: '100px'}}>
-        <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
-      </div>
-      <p>{isRunning ? 'Running' : 'Not running'}</p>
-      <button onClick={start}>Start</button>
-      <button onClick={pause}>Pause</button>
-      <button onClick={resume}>Resume</button>
-      <button onClick={() => {
-        window.location.reload(false);
-        // Restarts to 5 minutes timer
-        const time = new Date();
-        time.setSeconds(time.getSeconds() + 300);
-        restart(time)
-      }}>Restart</button>
-    </div>
-  );
-}
 
 
 
 function MathGamee() {
-  const refreshPage =() => {
-    window.location.reload(false);
+  function MyTimer({ expiryTimestamp }) {
+    const {
+      totalSeconds,
+      seconds,
+      minutes,
+      hours,
+      days,
+      restart,
+    } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
+  
+  
+    return (
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ fontSize: '100px' }}>
+          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+        </div>
+        <button onClick={() => {
+          const time = new Date();
+          time.setSeconds(time.getSeconds() + 300);
+          restart(time)
+        }}>Restart</button>
+      </div>
+    );
   }
+  
 
-    const [questions,setquestion] = useState([
-        {
-            question: '1 + 1',
-            choices: ['2', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '2',
-        },
-        {
-            question: '2 + 1',
-            choices: ['2', '3', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '3',
-        },
-        {
-            question: '3 + 1',
-            choices: ['2', '21', '4', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '4',
-        },
-        {
-            question: '12 + 1',
-            choices: ['2', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: 'None of the above',
-        },
-        {
-            question: '10 + 1',
-            choices: ['2', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: 'None of the above',
-        },
-        {
-          question: '10 + 2',
-          choices: ['2', '21', '12', 'None of the above'],
-          type: 'MCQs',
-          correctAnswer: 'None of the above',
-      },
-    ]);
 
-    const [activeQuestion, setActiveQuestion] = useState(0)
+  const questionL1 = [
+    {
+      question: '1 + 1',
+      choices: ['2', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '2',
+    },
+    {
+      question: '2 + 1',
+      choices: ['2', '3', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '3',
+    },
+    {
+      question: '3 + 1',
+      choices: ['2', '21', '4', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '4',
+    },
+    {
+      question: '12 + 1',
+      choices: ['2', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: 'None of the above',
+    },
+    {
+      question: '10 + 1',
+      choices: ['2', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: 'None of the above',
+    },
+    {
+      question: '10 + 2',
+      choices: ['2', '21', '12', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: 'None of the above',
+    },
+  ]
+
+  const questionL2 = [
+    {
+      question: '1 + 1',
+      choices: ['2', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '2',
+    },
+    {
+      question: '2 + 1',
+      choices: ['2', '3', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '3',
+    },
+    {
+      question: '3 + 1',
+      choices: ['2', '21', '4', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '4',
+    },
+    {
+      question: '12 + 1',
+      choices: ['2', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: 'None of the above',
+    },
+    {
+      question: '10 + 1',
+      choices: ['2', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: 'None of the above',
+    },
+    {
+      question: '11 + 1',
+      choices: ['12', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '2',
+    },
+    {
+      question: '12 + 1',
+      choices: ['2', '13', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '3',
+    },
+    {
+      question: '13 + 1',
+      choices: ['2', '21', '14', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: '4',
+    },
+    {
+      question: '12 + 11',
+      choices: ['2', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: 'None of the above',
+    },
+    {
+      question: '10 + 11',
+      choices: ['2', '21', '1', 'None of the above'],
+      type: 'MCQs',
+      correctAnswer: 'None of the above',
+    },
+  ]
+
+
+  const [questions, setquestion] = useState(questionL1);
+
+  const [activeQuestion, setActiveQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const [showResult, setShowResult] = useState(false)
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
@@ -105,17 +158,23 @@ function MathGamee() {
     setResult((prev) =>
       selectedAnswer
         ? {
-            ...prev,
-            score: prev.score + 5,
-            correctAnswers: prev.correctAnswers + 1,
-          }
+          ...prev,
+          score: prev.score + 5,
+          correctAnswers: prev.correctAnswers + 1,
+        }
         : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
     )
     if (activeQuestion !== questions.length - 1) {
+      console.log(questions.length, "length")
       setActiveQuestion((prev) => prev + 1)
     } else {
-      setActiveQuestion(0)
-      setShowResult(true)
+      if (activeQuestion === questions.length - 1) {
+        setquestion(questionL2)
+        setActiveQuestion((prev) => prev + 1)
+      } else {
+        setActiveQuestion(0)
+        setShowResult(true)
+      }
     }
   }
 
@@ -134,77 +193,23 @@ function MathGamee() {
   time.setSeconds(time.getSeconds() + 60); // 1 minutes timer
 
   useEffect(() => {
-		console.log("bshfgusefyuklg", result);
-    if (result.correctAnswers===5){
-        setquestion([
-          {
-            question: '1 + 1',
-            choices: ['2', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '2',
-        },
-        {
-            question: '2 + 1',
-            choices: ['2', '3', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '3',
-        },
-        {
-            question: '3 + 1',
-            choices: ['2', '21', '4', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '4',
-        },
-        {
-            question: '12 + 1',
-            choices: ['2', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: 'None of the above',
-        },
-        {
-            question: '10 + 1',
-            choices: ['2', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: 'None of the above',
-        },
-          {
-            question: '11 + 1',
-            choices: ['12', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '2',
-        },
-        {
-            question: '12 + 1',
-            choices: ['2', '13', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '3',
-        },
-        {
-            question: '13 + 1',
-            choices: ['2', '21', '14', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: '4',
-        },
-        {
-            question: '12 + 11',
-            choices: ['2', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: 'None of the above',
-        },
-        {
-            question: '10 + 11',
-            choices: ['2', '21', '1', 'None of the above'],
-            type: 'MCQs',
-            correctAnswer: 'None of the above',
-        },
-        ])
-    }
+    console.log("bshfgusefyuklg", result);
+    if (result.correctAnswers === 5) {
+      setquestion(questionL2);
+    } 
 	}, [activeQuestion]);
+  useEffect(() => {
+    console.log(time,"timeleft")
+  },[time]);
 
+  const newGame =() =>{
+    window.location.reload(false)
+  }
+
+  const NewGame=() =>{
+    console.log("newgame")
     return (
-        <div className="MathGame">
-           <div className="quiz-container" style={{height:"100vh", marginTop:"5rem"}}>
-      {!showResult ? (
+      <>
         <div>
           <div>
             <span className="active-question-no">{addLeadingZero(activeQuestion + 1)}</span>
@@ -223,11 +228,18 @@ function MathGamee() {
           </ul>
           <div className="flex-right">
             <button onClick={onClickNext} disabled={selectedAnswerIndex === null}>
-              {activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
+              Next
             </button>
           </div>
         </div>
-      ) : (
+      </>
+    )
+  }
+
+    return (
+        <div className="MathGame">
+           <div className="quiz-container" style={{height:"100vh", marginTop:"5rem"}}>
+      {!showResult ? (NewGame()) : (
         <div className="result">
           <h3>Result</h3>
           <p>
@@ -242,6 +254,7 @@ function MathGamee() {
           <p>
             Wrong Answers:<span> {result.wrongAnswers}</span>
           </p>
+          <button onClick={newGame}> newgame</button>
         </div>
       )}
     </div>
