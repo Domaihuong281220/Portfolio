@@ -3,37 +3,12 @@ import "./style.css"
 
 import { useTimer } from 'react-timer-hook';
 
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 
 
 
 function MathGamee() {
-  function MyTimer({ expiryTimestamp }) {
-    const {
-      totalSeconds,
-      seconds,
-      minutes,
-      hours,
-      days,
-      restart,
-    } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
-  
-  
-    return (
-      <div style={{ textAlign: 'center' }}>
-        <div style={{ fontSize: '100px' }}>
-          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
-        </div>
-        <button onClick={() => {
-          const time = new Date();
-          time.setSeconds(time.getSeconds() + 300);
-          restart(time)
-        }}>Restart</button>
-      </div>
-    );
-  }
-  
-
 
   const questionL1 = [
     {
@@ -168,7 +143,7 @@ function MathGamee() {
       console.log(questions.length, "length")
       setActiveQuestion((prev) => prev + 1)
     } else {
-      if (activeQuestion === questions.length - 1) {
+      if (activeQuestion === questions.length - 1 && result.correctAnswers === 5) {
         setquestion(questionL2)
         setActiveQuestion((prev) => prev + 1)
       } else {
@@ -196,17 +171,21 @@ function MathGamee() {
     console.log("bshfgusefyuklg", result);
     if (result.correctAnswers === 5) {
       setquestion(questionL2);
-    } 
-	}, [activeQuestion]);
+    }
+  }, [activeQuestion]);
   useEffect(() => {
-    console.log(time,"timeleft")
-  },[time]);
+    console.log(time, "timeleft")
+  }, [time]);
 
-  const newGame =() =>{
+  const newGame = () => {
     window.location.reload(false)
   }
 
-  const NewGame=() =>{
+  const EndGame = () => {
+    console.log("EndGame")
+  }
+
+  const NewGame = () => {
     console.log("newgame")
     return (
       <>
@@ -232,36 +211,50 @@ function MathGamee() {
             </button>
           </div>
         </div>
+        <CountdownCircleTimer
+          isPlaying
+          duration={30}
+          colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+          colorsTime={[7, 5, 2, 0]}
+          onComplete={() => {
+            setActiveQuestion(0)
+            setShowResult(true)
+            return { shouldRepeat: false }
+          }}
+        >
+          {({ remainingTime }) => remainingTime}
+        </CountdownCircleTimer>
       </>
     )
   }
 
-    return (
-        <div className="MathGame">
-           <div className="quiz-container" style={{height:"100vh", marginTop:"5rem"}}>
-      {!showResult ? (NewGame()) : (
-        <div className="result">
-          <h3>Result</h3>
-          <p>
-            Total Question: <span>{questions.length}</span>
-          </p>
-          <p>
-            Total Score:<span> {result.score}</span>
-          </p>
-          <p>
-            Correct Answers:<span> {result.correctAnswers}</span>
-          </p>
-          <p>
-            Wrong Answers:<span> {result.wrongAnswers}</span>
-          </p>
-          <button onClick={newGame}> newgame</button>
-        </div>
-      )}
-    </div>
+  return (
+    <div className="MathGame">
+      <div className="quiz-container" style={{ height: "100vh", marginTop: "5rem" }}>
+        {!showResult ? (NewGame()) : (
+          <div className="result">
+            <h3>Result</h3>
+            <p>
+              Total Question: <span>{questions.length}</span>
+            </p>
+            <p>
+              Total Score:<span> {result.score}</span>
+            </p>
+            <p>
+              Correct Answers:<span> {result.correctAnswers}</span>
+            </p>
+            <p>
+              Wrong Answers:<span> {result.wrongAnswers}</span>
+            </p>
+            <button onClick={newGame}> newgame</button>
+          </div>
+        )}
+      </div>
 
-    <MyTimer expiryTimestamp={time} />
-        </div>
-    );
+      {/* <MyTimer expiryTimestamp={time} /> */}
+
+    </div>
+  );
 }
 
 export default MathGamee;
