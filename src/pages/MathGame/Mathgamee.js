@@ -6,76 +6,27 @@ import { useTimer } from 'react-timer-hook';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 import questionL1 from "./QuestionL1"
+import questionL2 from "./QuestionL2"
 import questionL3 from "./QuestionL3"
+import questionL4 from "./QuestionL4"
+import questionL5 from "./QuestionL5"
+
+
+
 
 
 
 function MathGamee() {
 
-  const questionL2 = [
-    {
-      question: '1 + 1',
-      choices: ['2', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '2',
-    },
-    {
-      question: '2 + 1',
-      choices: ['2', '3', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '3',
-    },
-    {
-      question: '3 + 1',
-      choices: ['2', '21', '4', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '4',
-    },
-    {
-      question: '12 + 1',
-      choices: ['2', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: 'None of the above',
-    },
-    {
-      question: '10 + 1',
-      choices: ['2', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: 'None of the above',
-    },
-    {
-      question: '11 + 1',
-      choices: ['12', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '2',
-    },
-    {
-      question: '12 + 1',
-      choices: ['2', '13', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '3',
-    },
-    {
-      question: '13 + 1',
-      choices: ['2', '21', '14', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '4',
-    },
-    {
-      question: '12 + 11',
-      choices: ['2', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: 'None of the above',
-    },
-    {
-      question: '10 + 11',
-      choices: ['2', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: 'None of the above',
-    },
-  ]
+  const QuestionLevel1= getMultipleRandom(questionL1, 5)
+  const QuestionLevel2= getMultipleRandom(questionL2, 10)
+  const QuestionLevel3= getMultipleRandom(questionL3, 15)
+  const QuestionLevel4= getMultipleRandom(questionL4, 20)
+  const QuestionLevel5= getMultipleRandom(questionL5, 25)
 
-  const [questions, setquestion] = useState(questionL1);
+
+
+  const [questions, setquestion] = useState(QuestionLevel1);
 
   const [activeQuestion, setActiveQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState('')
@@ -88,6 +39,12 @@ function MathGamee() {
   })
 
 
+  function getMultipleRandom(arr, num) {
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  
+    return shuffled.slice(0, num);
+  }
+  
   const { question, choices, correctAnswer } = questions[activeQuestion]
 
   const onClickNext = () => {
@@ -102,17 +59,41 @@ function MathGamee() {
         : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
     )
     if (activeQuestion !== questions.length - 1) {
-      console.log(questions.length, "length")
       setActiveQuestion((prev) => prev + 1)
     } else {
-      if (activeQuestion === questions.length - 1 && result.correctAnswers === 5) {
-        setquestion(questionL2)
-        setActiveQuestion((prev) => prev + 1)
-      } else {
-        setActiveQuestion(0)
-        setShowResult(true)
+      if (selectedAnswer===true) {
+          if (result.correctAnswers === 4){
+              setquestion(QuestionLevel2)
+              setActiveQuestion((prev) => prev + 1)  
+          }
+          else{
+              if (result.correctAnswers === 9){
+                  setquestion(QuestionLevel3)
+                  setActiveQuestion((prev) => prev + 1)
+                }
+                else {
+                  if (result.correctAnswers === 14){
+                    setquestion(QuestionLevel4)
+                    setActiveQuestion((prev) => prev + 1)
+                  }
+                  else {
+                    if (result.correctAnswers === 19){
+                      setquestion(QuestionLevel5)
+                      setActiveQuestion((prev) => prev + 1)
+                    }
+                    else {
+                      setActiveQuestion(0)
+                    setShowResult(true)
+                    }
+                  }
+                }
+              }
+          }
+          else {
+            setActiveQuestion(0)
+                    setShowResult(true)
+          }
       }
-    }
   }
 
   const onAnswerSelected = (answer, index) => {
@@ -130,7 +111,6 @@ function MathGamee() {
   time.setSeconds(time.getSeconds() + 60); // 1 minutes timer
 
   useEffect(() => {
-    console.log("bshfgusefyuklg", result);
     if (result.correctAnswers === 5) {
       setquestion(questionL2);
     }
@@ -165,10 +145,11 @@ function MathGamee() {
             </button>
           </div>
         </div>
+        <div className="timer">
         <CountdownCircleTimer
           isPlaying
-          duration={30}
-          colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+          duration={60}
+          colors={['#07B207', '#F7B801', '#A30000', '#A30000']}
           colorsTime={[7, 5, 2, 0]}
           onComplete={() => {
             setActiveQuestion(0)
@@ -178,6 +159,7 @@ function MathGamee() {
         >
           {({ remainingTime }) => remainingTime}
         </CountdownCircleTimer>
+        </div>
       </>
     )
   }
@@ -200,7 +182,7 @@ function MathGamee() {
             <p>
               Wrong Answers:<span> {result.wrongAnswers}</span>
             </p>
-            <button onClick={newGame}> newgame</button>
+            <button onClick={newGame}> Restart</button>
           </div>
         )}
       </div>
