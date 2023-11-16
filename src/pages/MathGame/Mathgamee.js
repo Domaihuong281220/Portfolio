@@ -5,49 +5,12 @@ import { useTimer } from 'react-timer-hook';
 
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
+import questionL1 from "./QuestionL1"
+import questionL3 from "./QuestionL3"
 
 
 
 function MathGamee() {
-
-  const questionL1 = [
-    {
-      question: '1 + 1',
-      choices: ['2', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '2',
-    },
-    {
-      question: '2 + 1',
-      choices: ['2', '3', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '3',
-    },
-    {
-      question: '3 + 1',
-      choices: ['2', '21', '4', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: '4',
-    },
-    {
-      question: '12 + 1',
-      choices: ['2', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: 'None of the above',
-    },
-    {
-      question: '10 + 1',
-      choices: ['2', '21', '1', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: 'None of the above',
-    },
-    {
-      question: '10 + 2',
-      choices: ['2', '21', '12', 'None of the above'],
-      type: 'MCQs',
-      correctAnswer: 'None of the above',
-    },
-  ]
 
   const questionL2 = [
     {
@@ -112,7 +75,6 @@ function MathGamee() {
     },
   ]
 
-
   const [questions, setquestion] = useState(questionL1);
 
   const [activeQuestion, setActiveQuestion] = useState(0)
@@ -173,20 +135,12 @@ function MathGamee() {
       setquestion(questionL2);
     }
   }, [activeQuestion]);
-  useEffect(() => {
-    console.log(time, "timeleft")
-  }, [time]);
 
   const newGame = () => {
     window.location.reload(false)
   }
 
-  const EndGame = () => {
-    console.log("EndGame")
-  }
-
   const NewGame = () => {
-    console.log("newgame")
     return (
       <>
         <div>

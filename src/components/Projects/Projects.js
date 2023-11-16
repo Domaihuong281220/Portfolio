@@ -41,6 +41,7 @@ function Projects() {
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sodales at quam in imperdiet. Nunc eget ante tellus. Donec tempor dui ligula, vel aliquet eros gravida eget."
               // ghLink="https://github.com/soumyajit4419/Bits-0f-C0de"
               // demoLink="https://blogs.soumya-jit.tech/"
+              link="/MathGamee"
             />
           </Col>
 

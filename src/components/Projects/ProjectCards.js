@@ -3,8 +3,10 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { GrGamepad } from "react-icons/gr";
+import {useNavigate} from "react-router-dom"
 
 function ProjectCards(props) {
+    const navigate = useNavigate(); 
   return (
     <Card className="project-card-view">
       <Card.Img variant="top" src={props.imgPath} alt="card-img" />
@@ -18,7 +20,7 @@ function ProjectCards(props) {
           {props.isBlog ? "Blog" : "GitHub"}
         </Button> */}
 
-        <Button variant="primary" href={props.gamelink} target="_blank" className="game-btn">
+        <Button variant="primary" onClick={()=>navigate(props.link)} className="game-btn">
           <GrGamepad /> &nbsp;
           {props.isBlog ? "Blog" : "Play Now!"}
         </Button>
