@@ -22,13 +22,21 @@ import AlligatorSound from "../../../Assets/Audio/colors/yellow.mp3";
 import ImageBoxComponent from "../Components/ImageBoxComponents";
 
 function AnimalsGame() {
-  const animalData  = [
-    {animalName: "Alligator",animalImg: Alligator,animalSound: AlligatorSound },
+  const animalData = [
+    {
+      animalName: "Alligator",
+      animalImg: Alligator,
+      animalSound: AlligatorSound,
+    },
     { animalName: "Bear", animalImg: Bear, animalSound: AlligatorSound },
     { animalName: "Bird", animalImg: Bird, animalSound: AlligatorSound },
     { animalName: "Cat", animalImg: Cat, animalSound: AlligatorSound },
     { animalName: "Dog", animalImg: Dog, animalSound: AlligatorSound },
-    {animalName: "Elephant",animalImg: Elephant, animalSound: AlligatorSound},
+    {
+      animalName: "Elephant",
+      animalImg: Elephant,
+      animalSound: AlligatorSound,
+    },
     { animalName: "Fish", animalImg: Fish, animalSound: AlligatorSound },
     { animalName: "fox", animalImg: Fox, animalSound: AlligatorSound },
     { animalName: "giraffe", animalImg: giraffe, animalSound: AlligatorSound },
@@ -58,20 +66,13 @@ function AnimalsGame() {
       >
         <h1 className="text-[2.6rem] uppercase text-[#C770F0]">Animals</h1>
         <div className="w-[80%] flex flex-wrap justify-center gap-2 m-auto p-4">
-          {/* {details.map((element) => (
+          {animalData.map((element) => (
             <ImageBoxComponent
               text={element["animalName"]}
               images-url={element["animalImg"]}
               audio-url={element["animalSound"]}
             />
-          ))} */}
-          {animalData.map((element) => (
-        <ImageBoxComponent
-          text={element["animalName"]}
-          images-url={element["animalImg"]}
-          audio-url={element["animalSound"]}
-        />
-      ))}
+          ))}
         </div>
       </section>
     </>
