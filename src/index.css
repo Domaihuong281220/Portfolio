@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
   font-family: "Raleway", serif !important;
@@ -8,4 +11,5 @@ body {
   background-image: linear-gradient(to bottom right, #49234F,#B97515);
   position: relative;
   z-index: -2;
+  
 }

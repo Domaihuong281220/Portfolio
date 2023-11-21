@@ -8,6 +8,13 @@ import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import Login from "./pages/Login/Login";
 import MathGamee from "./pages/MathGame/Mathgamee";
+import Profile from "./pages/Profile/Profile";
+import ReadingGame from "./pages/ReadingGame/ReadingGame";
+import ColorsGame from "./pages/ReadingGame/MiniGame/ColorsPage";
+import NumbersGame from "./pages/ReadingGame/MiniGame/NumberPage";
+import AlphabetsGame from "./pages/ReadingGame/MiniGame/AlphabetsPage";
+import AnimalsGame from "./pages/ReadingGame/MiniGame/AnimalsPage";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -42,6 +49,12 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/readinggame" element={<ReadingGame />} />
+          <Route path="/colorsgame" element={<ColorsGame />} />
+          <Route path="/numbersgame" element={<NumbersGame />} />
+          <Route path="/alphabetsgame" element={<AlphabetsGame />} />
+          <Route path="/animalsgame" element={<AnimalsGame />} />
           <Route path="*" element={<Navigate to="/"/>} />
           <Route path="/MathGamee" element={<MathGamee/>} />
 
